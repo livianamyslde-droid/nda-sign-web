@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>📄 核心会员交易信号保密协议签署</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","PingFang SC","Microsoft YaHei UI",sans-serif;line-height:1.75;padding:18px;background:#f4f6f9;color:#333;}
+    h1{text-align:center;margin-bottom:10px;}
+    .box{max-width:800px;margin:auto;background:#fff;padding:26px;border-radius:10px;box-shadow:0 0 15px rgba(0,0,0,.08);}
+    textarea{width:100%;height:300px;border-radius:4px;padding:10px;font-size:14px;}
+    input,button{padding:10px;font-size:15px;border-radius:5px;width:100%;margin-top:10px;border:1px solid #999;}
+    button{background:#1b73e9;color:#fff;cursor:pointer;}
+    button:hover{background:#0e5dcc;}
+    #done{display:none;margin-top:20px;background:#fff;padding:20px;border-radius:10px;border:1px solid #ccc;}
+    .success{color:#15a03b;font-weight:bold;font-size:18px;margin-bottom:10px;}
+</style>
+</head>
+<body>
+<div class="box">
+
+<h1>🔐 核心会员交易信号保密协议 NDA</h1>
+<p style="text-align:center;margin-top:-5px;">签署后视为完全理解并接受全部条款</p>
+
+<textarea readonly>
+协议编号：系统自动生成  
+保密期限：至协议提交日起不少于36个月
+
+【保密内容范围】
+乙方不得泄漏任何：
+• 交易信号 / 买卖点位 / 止损止盈策略  
+• 会员群观点、分析图表、语音/视频内容  
+• 核心策略模型、参数、研究资料  
+• 信息不得转发、复制、截图、另行销售
+
+【违约责任】
+若泄漏或造成策略外流，乙方承担：
+• 永久取消会员资格，不退费  
+• 支付不低于 10,000~200,000 RMB违约金  
+• 情节严重者甲方保留法务追责权  
+
+乙方提交并签署视为已阅读、理解并同意本协议。
+</textarea>
+
+<h2>🖊 签署信息</h2>
+<input id="name" placeholder="请输入真实姓名">
+<input id="phone" placeholder="手机号 / 邮箱，至少填写一项">
+<label><input type="checkbox" id="agree"> 我已阅读并同意《交易信号保密协议》</label>
+<button onclick="sign()">确认签署</button>
+
+<div id="done">
+    <p class="success">✔ 协议签署成功</p>
+    <p>签署人：<span id="r_name"></span></p>
+    <p>联系方式：<span id="r_phone"></span></p>
+    <p>签署时间：<span id="r_time"></span></p>
+    <p style="margin-top:15px;">⏺ 建议将本页截图保存作为法律佐证凭据。</p>
+</div>
+
+</div>
+
+<script>
+function sign(){
+    if(!agree.checked) return alert("需勾选同意协议");
+    if(!name.value) return alert("请填写姓名");
+    if(!phone.value) return alert("请填写手机号 或 邮箱");
+    document.getElementById("r_name").innerText=name.value;
+    document.getElementById("r_phone").innerText=phone.value;
+    document.getElementById("r_time").innerText=new Date().toLocaleString();
+    document.getElementById("done").style.display="block";
+    window.scrollTo(0,document.body.scrollHeight);
+}
+</script>
+
+</body>
+</html>
