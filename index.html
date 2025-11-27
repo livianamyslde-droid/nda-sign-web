@@ -60,12 +60,16 @@
 
 <script>
 function sign(){
-    if(!agree.checked) return alert("需勾选同意协议");
-    if(!name.value) return alert("请填写姓名");
-    if(!phone.value) return alert("请填写手机号 或 邮箱");
-    document.getElementById("r_name").innerText=name.value;
-    document.getElementById("r_phone").innerText=phone.value;
-    document.getElementById("r_time").innerText=new Date().toLocaleString();
+   const userName = document.getElementById("name").value.trim();
+const userPhone = document.getElementById("phone").value.trim();
+
+if(!agree.checked) return alert("需勾选同意协议");
+if(!userName) return alert("请填写姓名");
+if(!userPhone) return alert("请填写手机号 或 邮箱");
+
+   document.getElementById("r_name").innerText = userName;
+document.getElementById("r_phone").innerText = userPhone
+document.getElementById("r_time").innerText=new Date().toLocaleString();
     document.getElementById("done").style.display="block";
     window.scrollTo(0,document.body.scrollHeight);
 }
